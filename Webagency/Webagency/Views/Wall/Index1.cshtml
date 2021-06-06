@@ -1,0 +1,248 @@
+﻿@model Webagency.Models.postsphotosview
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_WallLayout.cshtml";
+}
+
+<div class="container " style="border:6px solid #800000;min-height:500px; padding:15px 40px;max-width:95%;border-radius:5px;">
+    @foreach (var item in Model.articleposts)
+    {
+        <div class="row justify-content-center" style="background-color:#FDEDEC ; padding:10px 30px">
+            <div class="row " style="background-color:#F5B7B1; color:#641E16 ">
+                <p class="col-lg-9 col-sm-4 right">@item.articleType</p>
+                <p class="col-lg-3 col-sm-4 lift">Created in @item.postCreationDate</p>
+            </div>
+            <div class="row justify-content-center " style="background-color:#F5B7B1; color:#641E16; text-align:center">
+                
+                <h2 class="col-lg-12 ">@item.articleTitle</h2>
+
+            </div>
+
+
+            <div class="row justify-content-around overflow-hidden " style="min-height:300px">
+                <div class="col-lg-12" style="background-color:#FADBD8 ; color:#641E16">
+
+                    @item.articlebody
+                    @if (Session["user"] != null)
+                    {
+                        @Html.ActionLink("See More...", "Show", new { id = item.articleID }, htmlAttributes: new { @class = "btn btn-secondary " })
+
+                    }
+
+
+                </div>
+
+
+            </div>
+
+
+            @if (Model.photos != null)
+            {
+
+                <div class="row justify-content-between border border-secondary">
+                    @foreach (var image in Model.photos)
+                    {
+                        if (image.articleid == item.articleID)
+                        {
+                            <img src="~/images/profiles/@image.path" class="rounded" alt="" style="width:1000px;height:500px;">
+                        }
+                    }
+                </div>
+            }
+           
+          
+            <div class="row  justify-content-between border border-secondary " style="width:100% ; background-color:#F5B7B1; color:#641E16 ">
+
+                <div class="col-lg-2" style="max-width:300px">
+                    
+                    <i class="fa fa-eye"></i> @item.NumberOfViewers
+                </div>
+
+
+
+
+                @if (Session["user"] != null)
+                {
+
+                    <div class="col-lg-2" style="max-width:100px">
+                        <button class="col-md-4 btn btn-link btn btn-secondary " id="DisLike" onclick="Dislike(@item.articleID)"style="background-color:white;border-color:lavenderblush;width: 50px; height:30px;"><i class="fa fa-thumbs-down fs-2"></i>@item.NumberOfDislikes</button>
+                        
+                    </div>
+
+
+
+
+                            <div class="col-lg-2" style="max-width:300px">
+                                <button class="col-md-4 btn btn-link btn btn-secondary " id="Like" onclick="Like(@item.articleID)"style="background-color:white;border-color:lavenderblush;width: 50px; height:30px;"><i class="fa fa-thumbs-up fs-2"></i> @item.NumberOfLikes</button>
+                                
+                            </div>
+
+
+
+                            <div class="col-lg-2" style="max-width:300px;">
+                                
+                                <button  class="col-md-4 btn btn-link btn btn-secondary " value="Save" id="Save" onclick="Save(@item.articleID)" style="background-color:white;border-color:lavenderblush;width: 50px; height:30px;"><i class="fa fa-save fs-2"></i>Save</button>
+
+                            </div>
+
+                            <div class="col-lg-2" style="max-width:300px; ">
+                                @Html.ActionLink("show  Answers", "Answers", new { id = item.articleID }, htmlAttributes: new { @class = "btn btn-primary btn-lg-1 " })
+
+
+                            </div>
+
+
+                }
+
+
+
+
+
+            </div>
+            @if (Session["user"] != null)
+            {
+                <div class="row  justify-content-between border border-secondary " style="margin-top:5px;">
+
+                    <div class="col-lg-2" style="padding:0;">
+                        <button type="button" class="btn btn-primary btn-lg-2" id="Quesion" onclick="ask(@item.articleID)" style="background-color:darkred">Send Question</button>
+                    </div>
+
+                    <textarea type="text" cols="3" rows="2" class="col-lg-10" for="textArea" id="Ques" placeholder="Question ?" style="width:100%;height:40px;"></textarea>
+
+                </div>
+            }
+
+        </div>
+
+
+    }
+    </div>
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////-->
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        ask = function (id) {
+            Qdata = $("#Ques").val();
+            $.ajax({
+                type: "POST",
+                url: "/Wall/AddQuestion/" + id,
+                data: { ques: Qdata },
+                success: function (resoponse) {
+                    if (resoponse.result) {
+                        alert("Qustion added");
+                    }
+                    else {
+                        alert("Qustion not add");
+                    }
+                },
+
+
+
+            })
+        }
+        Views = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/CountViews/" + id,
+
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("view");
+                    }
+                    else {
+                        alert("not view");
+                    }
+                },
+
+
+
+            })
+        }
+
+
+
+
+
+
+
+
+    ////////////////////////////////////////
+
+
+         Dislike = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/DisLike/"+id,
+
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("Dislike");
+                    }
+                    else {
+                        alert("Remove Dislike");
+                    }
+                },
+
+
+
+            })
+
+        }
+
+        Like = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/Like/" + id,
+
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("like");
+                    }
+                    else {
+                        alert("Remove like");
+                    }
+                },
+
+
+
+            })
+
+        }
+
+        Save = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/Save/" + id,
+
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("you save post");
+                    }
+                    else {
+                        alert("you saved post");
+                    }
+                },
+
+
+
+            })
+
+        }
+
+
+
+
+
+</script>
+
+}
+
+
+
+
+

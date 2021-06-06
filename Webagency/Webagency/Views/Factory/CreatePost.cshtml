@@ -1,0 +1,73 @@
+﻿@model Webagency.Models.newpostsview
+
+@{
+    ViewBag.Title = "CreatePost";
+    Layout = "~/Views/Shared/_FactoryLayout.cshtml";
+}
+
+<h2>CreatePostes</h2>
+
+
+@using (Html.BeginForm("CreatePost", "Factory", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.articleTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.articleTitle, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                @Html.ValidationMessageFor(model => model.articleTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.articleType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.articleType, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                @Html.ValidationMessageFor(model => model.articleType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.articleBody, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.articleBody, new { htmlAttributes = new { @class = "form-control col-md-6", @rows = "5", @col = "20" } })
+
+                @Html.ValidationMessageFor(model => model.articleBody, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="" class="img-thumbnail" id="Photo" alt="" style="width:300px;height:300px;">
+                <input id="file" name="file" type="file" class="text-danger btn btn-default" onchange="loadFile(event)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('photo');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+
+}

@@ -1,0 +1,149 @@
+﻿@model Webagency.Models.savedposts
+
+@{
+    ViewBag.Title = "savedposts";
+    Layout = "~/Views/Shared/_WallLayout.cshtml";
+}
+@if (Session["user"] != null)
+{
+
+
+    foreach (var item in Model.savePosts)
+    {
+
+        <div class="container " style="border:2px solid #808080;min-height:350px; padding:10px 35px;max-width:90%;border-radius:2px;">
+
+            @foreach (var post in Model.articlePosts)
+            {
+                if (item.postID == post.articleID)
+                {
+                    <div class="row justify-content-center"style="background-color:#FDEDEC ; padding:10px 30px">
+                        <div class="row "style="background-color:#F5B7B1; color:#641E16 ">
+                            <p class="col-lg-9 col-sm-4 lift">@post.articleType</p>
+                            <p class="col-lg-3 col-sm-4 right">Created in @post.postCreationDate</p>
+                        </div>
+                        <div class="row justify-content-center "style="background-color:#F5B7B1; color:#641E16; text-align:center">
+                            <h2 class="col-lg-12 ">@post.articleTitle</h2>
+                        </div>
+
+
+                        <div class="row justify-content-around overflow-hidden " style="min-height:300px">
+                            <div class="col-lg-12"style="background-color:#FADBD8 ; color:#641E16">
+
+                                @post.articlebody
+
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="row  justify-content-between border border-secondary "style="width:100% ; background-color:#F5B7B1; color:#641E16 ">
+                            <div class="col-lg-2" style="max-width:300px">
+                                <i class="fa fa-eye"></i> @post.NumberOfViewers
+                            </div>
+                            @if (Session["user"] != null)
+                            {
+
+                                <div class="col-lg-2" style="max-width:100px">
+
+
+                                    <button class="col-md-4 btn btn-link btn btn-secondary " id="DisLike" onclick="Dislike(@post.articleID)"style="background-color:white;border-color:lavenderblush;width: 50px; height:30px;"><i class="fa fa-thumbs-down fs-2"></i>@post.NumberOfDislikes</button>
+                                </div>
+                                <div class="col-lg-2" style="max-width:100px">
+
+                                    <button class="col-md-4 btn btn-link btn btn-secondary " id="Like" onclick="Like(@post.articleID)"style="background-color:white;border-color:lavenderblush;width: 50px; height:30px;"><i class="fa fa-thumbs-up fs-2"></i> @post.NumberOfLikes</button>
+
+
+
+                                </div>
+
+                                <div class="col-lg-2" style="max-width:100px">
+                                    
+                                    <button class="col-md-4 btn btn-link btn btn-secondary " value="Save" id="Save" onclick="Save(@post.articleID)"style="background-color:white;border-color:lavenderblush;width: 50px; height: 30px;"><i class="fa fa-save fs-2"></i>Save</button>
+
+
+                                </div>
+
+                            }
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+                }
+            }
+        </div>
+
+
+
+    }
+
+
+
+
+}
+
+else
+{
+    Html.RenderAction("Index1");
+}
+
+
+@section Scripts{
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        Dislike = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/DisLike/" + id,
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("Dislike" );
+                    }
+                    else {
+                        alert("Remove Dislike");
+                    }
+                },
+            })
+        }
+        Like = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/Like/" + id,
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("like");
+                    }
+                    else {
+                        alert("Remove like");
+                    }
+                },
+            })
+        }
+        Save = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/Save/" + id,
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("you save post");
+                    }
+                    else {
+                        alert("you saved post");
+                    }
+                },
+            })
+        }
+    </script>
+
+}

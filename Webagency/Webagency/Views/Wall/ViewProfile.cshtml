@@ -1,0 +1,78 @@
+﻿@model Webagency.Models.user
+
+@{
+    ViewBag.Title = "ViewProfile";
+    Layout = "~/Views/Shared/_WallLayout.cshtml";
+}
+
+@if (Session["user"] != null)
+{
+
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.photo)
+            </dt>
+
+            <dd>
+
+                <img src="~/images/profiles/@Html.DisplayFor(model => model.photo)" class="img-thumbnail" id="photo" alt="" style="width:250px;height:250px;" />
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.userName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.userName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+
+
+
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.userID })
+    </p>
+}
+else
+{
+    Html.RenderAction("Index1");
+}

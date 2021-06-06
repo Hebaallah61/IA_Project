@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Webagency.Models.question>
+
+@{
+    ViewBag.Title = "Receivedquestions";
+    Layout = "~/Views/Shared/_FactoryLayout.cshtml";
+}
+
+<h2>ReceivedQuestions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreatePost")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Question1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question1)
+            </td>
+            <td>
+                <textarea type="text" cols="3" rows="2" class="col-lg-10" for="textArea" id="Ans" placeholder="Answer ?" style="width:100%;height:40px;"></textarea>
+
+            </td>
+
+            <td>
+
+                <button type="button" class="btn btn-primary btn-lg-2" id="Answer" onclick="answer(@item.postID)">Send Question</button>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        answer = function (id) {
+            Qdata = $("#Ans").val();
+            $.ajax({
+                type: "GET",
+                url: "/Factory/Answer/" + id,
+                data: { ques: Qdata },
+                success: function (resoponse) {
+                    if (resoponse.result) {
+                        alert("Answer add");
+                    }
+                    else {
+                        alert("not add");
+                    }
+                },
+            })
+        }
+
+
+
+    </script>
+
+}

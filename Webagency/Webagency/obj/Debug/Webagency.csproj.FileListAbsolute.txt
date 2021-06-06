@@ -1,0 +1,164 @@
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\ApplicationInsights.config
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\csc.exe
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\System.Collections.Immutable.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\System.Reflection.Metadata.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\vbc.exe
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\VBCSCompiler.exe
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\roslyn\VBCSCompiler.exe.config
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Webagency.dll.config
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Webagency.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Webagency.pdb
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Antlr3.Runtime.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\EntityFramework.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\EntityFramework.SqlServer.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.Agent.Intercept.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.DependencyCollector.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.Web.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.WindowsServer.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.ApplicationInsights.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Core.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Cookies.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Facebook.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Google.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.OAuth.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Twitter.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Web.Infrastructure.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Newtonsoft.Json.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Owin.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Helpers.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Mvc.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Optimization.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Razor.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.WebPages.Deployment.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.WebPages.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.WebPages.Razor.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\WebGrease.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.DependencyCollector.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.Web.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AI.WindowsServer.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.ApplicationInsights.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Helpers.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Mvc.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Optimization.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.Razor.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.WebPages.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.WebPages.Deployment.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\System.Web.WebPages.Razor.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Antlr3.Runtime.pdb
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Newtonsoft.Json.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\EntityFramework.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\EntityFramework.SqlServer.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Core.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Facebook.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Cookies.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.OAuth.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Google.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.Twitter.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\CS second term\Graphics\packages\Webagency\Webagency\obj\Debug\Webagency.dll
+E:\CS second term\Graphics\packages\Webagency\Webagency\obj\Debug\Webagency.pdb
+E:\CS second term\Graphics\packages\Webagency\Webagency\obj\Debug\Webagency.csprojResolveAssemblyReference.cache
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\ApplicationInsights.config
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\csc.exe
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\System.Collections.Immutable.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\System.Reflection.Metadata.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\vbc.exe
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\VBCSCompiler.exe
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\roslyn\VBCSCompiler.exe.config
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Webagency.dll.config
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Webagency.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Webagency.pdb
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Antlr3.Runtime.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\EntityFramework.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\EntityFramework.SqlServer.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.Agent.Intercept.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.DependencyCollector.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.Web.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.WindowsServer.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.ApplicationInsights.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Core.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Cookies.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Facebook.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Google.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.OAuth.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Twitter.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Web.Infrastructure.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Newtonsoft.Json.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Owin.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Helpers.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Mvc.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Optimization.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Razor.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.WebPages.Deployment.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.WebPages.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.WebPages.Razor.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\WebGrease.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.DependencyCollector.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.Web.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AI.WindowsServer.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.ApplicationInsights.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Helpers.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Mvc.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Optimization.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.Razor.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.WebPages.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.WebPages.Deployment.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\System.Web.WebPages.Razor.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Antlr3.Runtime.pdb
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Newtonsoft.Json.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\EntityFramework.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\EntityFramework.SqlServer.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Core.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Facebook.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Cookies.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.OAuth.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Google.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.Twitter.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\obj\Debug\Webagency.csprojResolveAssemblyReference.cache
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\obj\Debug\Webagency.dll
+F:\بروجكت ال ia قبل اخر تعديل على الداتا\Webagency\Webagency\obj\Debug\Webagency.pdb

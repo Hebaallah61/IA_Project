@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PressAgencySysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="articlePost">
+          <Key>
+            <PropertyRef Name="articleID" />
+          </Key>
+          <Property Name="articleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="editorID" Type="int" />
+          <Property Name="articleTitle" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="articlebody" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="postCreationDate" Type="datetime" Nullable="false" />
+          <Property Name="articleType" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="isAccepted" Type="bit" Nullable="false" />
+          <Property Name="NumberOfViewers" Type="int" />
+          <Property Name="NumberOfLikes" Type="int" />
+          <Property Name="NumberOfDislikes" Type="int" />
+        </EntityType>
+        <EntityType Name="DisLike">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="articleID" Type="int" />
+          <Property Name="userID" Type="int" />
+        </EntityType>
+        <EntityType Name="LikesPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="articleID" Type="int" />
+          <Property Name="userID" Type="int" />
+        </EntityType>
+        <EntityType Name="noOfViews">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="articleID" Type="int" />
+          <Property Name="userID" Type="int" />
+          <Property Name="noOfViewers" Type="int" />
+        </EntityType>
+        <EntityType Name="photo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="path" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="articleid" Type="int" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="questionID" />
+          </Key>
+          <Property Name="questionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar" MaxLength="200" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="200" />
+          <Property Name="Answerid" Type="int" />
+          <Property Name="isAnswer" Type="bit" />
+          <Property Name="postID" Type="int" />
+          <Property Name="editorID" Type="int" />
+          <Property Name="viewerID" Type="int" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="savePosts">
+          <Key>
+            <PropertyRef Name="saveID" />
+          </Key>
+          <Property Name="saveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="postID" Type="int" />
+          <Property Name="viewerID" Type="int" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="confirmPass" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone" Type="int" Nullable="false" />
+          <Property Name="photo" Type="nvarchar" MaxLength="1000" />
+          <Property Name="roleID" Type="int" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__articlePo__edito__15502E78">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="articlePost">
+              <PropertyRef Name="editorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DisLike__article__3B75D760">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="DisLike" Type="Self.DisLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="DisLike">
+              <PropertyRef Name="articleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DisLike__userID__3C69FB99">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="DisLike" Type="Self.DisLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="DisLike">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LikesPost__artic__5165187F">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="LikesPost" Type="Self.LikesPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="LikesPost">
+              <PropertyRef Name="articleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LikesPost__userI__52593CB8">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="LikesPost" Type="Self.LikesPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="LikesPost">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__noOfViews__artic__3F466844">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="noOfViews" Type="Self.noOfViews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="noOfViews">
+              <PropertyRef Name="articleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__noOfViews__userI__403A8C7D">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="noOfViews" Type="Self.noOfViews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="noOfViews">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__photo__articleid__37A5467C">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="photo" Type="Self.photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="photo">
+              <PropertyRef Name="articleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__question__editor__4D94879B">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="editorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__question__postID__4CA06362">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__question__viewer__4E88ABD4">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="viewerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__savePosts__postI__47DBAE45">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="savePosts" Type="Self.savePosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="savePosts">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__savePosts__viewe__48CFD27E">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="savePosts" Type="Self.savePosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="savePosts">
+              <PropertyRef Name="viewerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user__roleID__1273C1CD">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PressAgencySysModelStoreContainer">
+          <EntitySet Name="articlePost" EntityType="Self.articlePost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisLike" EntityType="Self.DisLike" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LikesPost" EntityType="Self.LikesPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="noOfViews" EntityType="Self.noOfViews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="photo" EntityType="Self.photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="question" EntityType="Self.question" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="savePosts" EntityType="Self.savePosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__articlePo__edito__15502E78" Association="Self.FK__articlePo__edito__15502E78">
+            <End Role="user" EntitySet="user" />
+            <End Role="articlePost" EntitySet="articlePost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DisLike__article__3B75D760" Association="Self.FK__DisLike__article__3B75D760">
+            <End Role="articlePost" EntitySet="articlePost" />
+            <End Role="DisLike" EntitySet="DisLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DisLike__userID__3C69FB99" Association="Self.FK__DisLike__userID__3C69FB99">
+            <End Role="user" EntitySet="user" />
+            <End Role="DisLike" EntitySet="DisLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LikesPost__artic__5165187F" Association="Self.FK__LikesPost__artic__5165187F">
+            <End Role="articlePost" EntitySet="articlePost" />
+            <End Role="LikesPost" EntitySet="LikesPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LikesPost__userI__52593CB8" Association="Self.FK__LikesPost__userI__52593CB8">
+            <End Role="user" EntitySet="user" />
+            <End Role="LikesPost" EntitySet="LikesPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__noOfViews__artic__3F466844" Association="Self.FK__noOfViews__artic__3F466844">
+            <End Role="articlePost" EntitySet="articlePost" />
+            <End Role="noOfViews" EntitySet="noOfViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__noOfViews__userI__403A8C7D" Association="Self.FK__noOfViews__userI__403A8C7D">
+            <End Role="user" EntitySet="user" />
+            <End Role="noOfViews" EntitySet="noOfViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__photo__articleid__37A5467C" Association="Self.FK__photo__articleid__37A5467C">
+            <End Role="articlePost" EntitySet="articlePost" />
+            <End Role="photo" EntitySet="photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__question__editor__4D94879B" Association="Self.FK__question__editor__4D94879B">
+            <End Role="user" EntitySet="user" />
+            <End Role="question" EntitySet="question" />
+          </AssociationSet>
+          <AssociationSet Name="FK__question__postID__4CA06362" Association="Self.FK__question__postID__4CA06362">
+            <End Role="articlePost" EntitySet="articlePost" />
+            <End Role="question" EntitySet="question" />
+          </AssociationSet>
+          <AssociationSet Name="FK__question__viewer__4E88ABD4" Association="Self.FK__question__viewer__4E88ABD4">
+            <End Role="user" EntitySet="user" />
+            <End Role="question" EntitySet="question" />
+          </AssociationSet>
+          <AssociationSet Name="FK__savePosts__postI__47DBAE45" Association="Self.FK__savePosts__postI__47DBAE45">
+            <End Role="articlePost" EntitySet="articlePost" />
+            <End Role="savePosts" EntitySet="savePosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__savePosts__viewe__48CFD27E" Association="Self.FK__savePosts__viewe__48CFD27E">
+            <End Role="user" EntitySet="user" />
+            <End Role="savePosts" EntitySet="savePosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user__roleID__1273C1CD" Association="Self.FK__user__roleID__1273C1CD">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PressAgencySysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="articlePost">
+          <Key>
+            <PropertyRef Name="articleID" />
+          </Key>
+          <Property Name="articleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="editorID" Type="Int32" />
+          <Property Name="articleTitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="articlebody" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="postCreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="articleType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isAccepted" Type="Boolean" Nullable="false" />
+          <Property Name="NumberOfViewers" Type="Int32" />
+          <Property Name="NumberOfLikes" Type="Int32" />
+          <Property Name="NumberOfDislikes" Type="Int32" />
+          <NavigationProperty Name="user" Relationship="Self.FK__articlePo__edito__15502E78" FromRole="articlePost" ToRole="user" />
+          <NavigationProperty Name="DisLikes" Relationship="Self.FK__DisLike__article__3B75D760" FromRole="articlePost" ToRole="DisLike" />
+          <NavigationProperty Name="LikesPosts" Relationship="Self.FK__LikesPost__artic__5165187F" FromRole="articlePost" ToRole="LikesPost" />
+          <NavigationProperty Name="noOfViews" Relationship="Self.FK__noOfViews__artic__3F466844" FromRole="articlePost" ToRole="noOfViews" />
+          <NavigationProperty Name="photos" Relationship="Self.FK__photo__articleid__37A5467C" FromRole="articlePost" ToRole="photo" />
+          <NavigationProperty Name="questions" Relationship="Self.FK__question__postID__4CA06362" FromRole="articlePost" ToRole="question" />
+          <NavigationProperty Name="savePosts" Relationship="Self.FK__savePosts__postI__47DBAE45" FromRole="articlePost" ToRole="savePosts" />
+        </EntityType>
+        <EntityType Name="DisLike">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="articleID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <NavigationProperty Name="articlePost" Relationship="Self.FK__DisLike__article__3B75D760" FromRole="DisLike" ToRole="articlePost" />
+          <NavigationProperty Name="user" Relationship="Self.FK__DisLike__userID__3C69FB99" FromRole="DisLike" ToRole="user" />
+        </EntityType>
+        <EntityType Name="LikesPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="articleID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <NavigationProperty Name="articlePost" Relationship="Self.FK__LikesPost__artic__5165187F" FromRole="LikesPost" ToRole="articlePost" />
+          <NavigationProperty Name="user" Relationship="Self.FK__LikesPost__userI__52593CB8" FromRole="LikesPost" ToRole="user" />
+        </EntityType>
+        <EntityType Name="noOfView">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="articleID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="noOfViewers" Type="Int32" />
+          <NavigationProperty Name="articlePost" Relationship="Self.FK__noOfViews__artic__3F466844" FromRole="noOfViews" ToRole="articlePost" />
+          <NavigationProperty Name="user" Relationship="Self.FK__noOfViews__userI__403A8C7D" FromRole="noOfViews" ToRole="user" />
+        </EntityType>
+        <EntityType Name="photo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="articleid" Type="Int32" />
+          <NavigationProperty Name="articlePost" Relationship="Self.FK__photo__articleid__37A5467C" FromRole="photo" ToRole="articlePost" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="questionID" />
+          </Key>
+          <Property Name="questionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Answerid" Type="Int32" />
+          <Property Name="isAnswer" Type="Boolean" />
+          <Property Name="postID" Type="Int32" />
+          <Property Name="editorID" Type="Int32" />
+          <Property Name="viewerID" Type="Int32" />
+          <NavigationProperty Name="articlePost" Relationship="Self.FK__question__postID__4CA06362" FromRole="question" ToRole="articlePost" />
+          <NavigationProperty Name="user" Relationship="Self.FK__question__editor__4D94879B" FromRole="question" ToRole="user" />
+          <NavigationProperty Name="user1" Relationship="Self.FK__question__viewer__4E88ABD4" FromRole="question" ToRole="user" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK__user__roleID__1273C1CD" FromRole="role" ToRole="user" />
+        </EntityType>
+        <EntityType Name="savePost">
+          <Key>
+            <PropertyRef Name="saveID" />
+          </Key>
+          <Property Name="saveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postID" Type="Int32" />
+          <Property Name="viewerID" Type="Int32" />
+          <NavigationProperty Name="articlePost" Relationship="Self.FK__savePosts__postI__47DBAE45" FromRole="savePosts" ToRole="articlePost" />
+          <NavigationProperty Name="user" Relationship="Self.FK__savePosts__viewe__48CFD27E" FromRole="savePosts" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="confirmPass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="Int32" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="roleID" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="articlePosts" Relationship="Self.FK__articlePo__edito__15502E78" FromRole="user" ToRole="articlePost" />
+          <NavigationProperty Name="DisLikes" Relationship="Self.FK__DisLike__userID__3C69FB99" FromRole="user" ToRole="DisLike" />
+          <NavigationProperty Name="LikesPosts" Relationship="Self.FK__LikesPost__userI__52593CB8" FromRole="user" ToRole="LikesPost" />
+          <NavigationProperty Name="noOfViews" Relationship="Self.FK__noOfViews__userI__403A8C7D" FromRole="user" ToRole="noOfViews" />
+          <NavigationProperty Name="questions" Relationship="Self.FK__question__editor__4D94879B" FromRole="user" ToRole="question" />
+          <NavigationProperty Name="questions1" Relationship="Self.FK__question__viewer__4E88ABD4" FromRole="user" ToRole="question" />
+          <NavigationProperty Name="role" Relationship="Self.FK__user__roleID__1273C1CD" FromRole="user" ToRole="role" />
+          <NavigationProperty Name="savePosts" Relationship="Self.FK__savePosts__viewe__48CFD27E" FromRole="user" ToRole="savePosts" />
+        </EntityType>
+        <Association Name="FK__articlePo__edito__15502E78">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="articlePost">
+              <PropertyRef Name="editorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DisLike__article__3B75D760">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="DisLike" Type="Self.DisLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="DisLike">
+              <PropertyRef Name="articleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LikesPost__artic__5165187F">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="LikesPost" Type="Self.LikesPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="LikesPost">
+              <PropertyRef Name="articleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__noOfViews__artic__3F466844">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="noOfViews" Type="Self.noOfView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="noOfViews">
+              <PropertyRef Name="articleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__photo__articleid__37A5467C">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="photo" Type="Self.photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="photo">
+              <PropertyRef Name="articleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__question__postID__4CA06362">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__savePosts__postI__47DBAE45">
+          <End Role="articlePost" Type="Self.articlePost" Multiplicity="0..1" />
+          <End Role="savePosts" Type="Self.savePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articlePost">
+              <PropertyRef Name="articleID" />
+            </Principal>
+            <Dependent Role="savePosts">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DisLike__userID__3C69FB99">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="DisLike" Type="Self.DisLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="DisLike">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LikesPost__userI__52593CB8">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="LikesPost" Type="Self.LikesPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="LikesPost">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__noOfViews__userI__403A8C7D">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="noOfViews" Type="Self.noOfView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="noOfViews">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__question__editor__4D94879B">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="editorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__question__viewer__4E88ABD4">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="question" Type="Self.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="viewerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user__roleID__1273C1CD">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__savePosts__viewe__48CFD27E">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="savePosts" Type="Self.savePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="savePosts">
+              <PropertyRef Name="viewerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PressAgencySysEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="articlePosts" EntityType="Self.articlePost" />
+          <EntitySet Name="DisLikes" EntityType="Self.DisLike" />
+          <EntitySet Name="LikesPosts" EntityType="Self.LikesPost" />
+          <EntitySet Name="noOfViews" EntityType="Self.noOfView" />
+          <EntitySet Name="photos" EntityType="Self.photo" />
+          <EntitySet Name="questions" EntityType="Self.question" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="savePosts" EntityType="Self.savePost" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="FK__articlePo__edito__15502E78" Association="Self.FK__articlePo__edito__15502E78">
+            <End Role="user" EntitySet="users" />
+            <End Role="articlePost" EntitySet="articlePosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DisLike__article__3B75D760" Association="Self.FK__DisLike__article__3B75D760">
+            <End Role="articlePost" EntitySet="articlePosts" />
+            <End Role="DisLike" EntitySet="DisLikes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LikesPost__artic__5165187F" Association="Self.FK__LikesPost__artic__5165187F">
+            <End Role="articlePost" EntitySet="articlePosts" />
+            <End Role="LikesPost" EntitySet="LikesPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__noOfViews__artic__3F466844" Association="Self.FK__noOfViews__artic__3F466844">
+            <End Role="articlePost" EntitySet="articlePosts" />
+            <End Role="noOfViews" EntitySet="noOfViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__photo__articleid__37A5467C" Association="Self.FK__photo__articleid__37A5467C">
+            <End Role="articlePost" EntitySet="articlePosts" />
+            <End Role="photo" EntitySet="photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__question__postID__4CA06362" Association="Self.FK__question__postID__4CA06362">
+            <End Role="articlePost" EntitySet="articlePosts" />
+            <End Role="question" EntitySet="questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__savePosts__postI__47DBAE45" Association="Self.FK__savePosts__postI__47DBAE45">
+            <End Role="articlePost" EntitySet="articlePosts" />
+            <End Role="savePosts" EntitySet="savePosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DisLike__userID__3C69FB99" Association="Self.FK__DisLike__userID__3C69FB99">
+            <End Role="user" EntitySet="users" />
+            <End Role="DisLike" EntitySet="DisLikes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LikesPost__userI__52593CB8" Association="Self.FK__LikesPost__userI__52593CB8">
+            <End Role="user" EntitySet="users" />
+            <End Role="LikesPost" EntitySet="LikesPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__noOfViews__userI__403A8C7D" Association="Self.FK__noOfViews__userI__403A8C7D">
+            <End Role="user" EntitySet="users" />
+            <End Role="noOfViews" EntitySet="noOfViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__question__editor__4D94879B" Association="Self.FK__question__editor__4D94879B">
+            <End Role="user" EntitySet="users" />
+            <End Role="question" EntitySet="questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__question__viewer__4E88ABD4" Association="Self.FK__question__viewer__4E88ABD4">
+            <End Role="user" EntitySet="users" />
+            <End Role="question" EntitySet="questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user__roleID__1273C1CD" Association="Self.FK__user__roleID__1273C1CD">
+            <End Role="role" EntitySet="roles" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__savePosts__viewe__48CFD27E" Association="Self.FK__savePosts__viewe__48CFD27E">
+            <End Role="user" EntitySet="users" />
+            <End Role="savePosts" EntitySet="savePosts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PressAgencySysModelStoreContainer" CdmEntityContainer="PressAgencySysEntities2">
+          <EntitySetMapping Name="articlePosts">
+            <EntityTypeMapping TypeName="PressAgencySysModel.articlePost">
+              <MappingFragment StoreEntitySet="articlePost">
+                <ScalarProperty Name="articleID" ColumnName="articleID" />
+                <ScalarProperty Name="editorID" ColumnName="editorID" />
+                <ScalarProperty Name="articleTitle" ColumnName="articleTitle" />
+                <ScalarProperty Name="articlebody" ColumnName="articlebody" />
+                <ScalarProperty Name="postCreationDate" ColumnName="postCreationDate" />
+                <ScalarProperty Name="articleType" ColumnName="articleType" />
+                <ScalarProperty Name="isAccepted" ColumnName="isAccepted" />
+                <ScalarProperty Name="NumberOfViewers" ColumnName="NumberOfViewers" />
+                <ScalarProperty Name="NumberOfLikes" ColumnName="NumberOfLikes" />
+                <ScalarProperty Name="NumberOfDislikes" ColumnName="NumberOfDislikes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisLikes">
+            <EntityTypeMapping TypeName="PressAgencySysModel.DisLike">
+              <MappingFragment StoreEntitySet="DisLike">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="articleID" ColumnName="articleID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LikesPosts">
+            <EntityTypeMapping TypeName="PressAgencySysModel.LikesPost">
+              <MappingFragment StoreEntitySet="LikesPost">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="articleID" ColumnName="articleID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="noOfViews">
+            <EntityTypeMapping TypeName="PressAgencySysModel.noOfView">
+              <MappingFragment StoreEntitySet="noOfViews">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="articleID" ColumnName="articleID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="noOfViewers" ColumnName="noOfViewers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="photos">
+            <EntityTypeMapping TypeName="PressAgencySysModel.photo">
+              <MappingFragment StoreEntitySet="photo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="articleid" ColumnName="articleid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="questions">
+            <EntityTypeMapping TypeName="PressAgencySysModel.question">
+              <MappingFragment StoreEntitySet="question">
+                <ScalarProperty Name="questionID" ColumnName="questionID" />
+                <ScalarProperty Name="Question1" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Answerid" ColumnName="Answerid" />
+                <ScalarProperty Name="isAnswer" ColumnName="isAnswer" />
+                <ScalarProperty Name="postID" ColumnName="postID" />
+                <ScalarProperty Name="editorID" ColumnName="editorID" />
+                <ScalarProperty Name="viewerID" ColumnName="viewerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="PressAgencySysModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="savePosts">
+            <EntityTypeMapping TypeName="PressAgencySysModel.savePost">
+              <MappingFragment StoreEntitySet="savePosts">
+                <ScalarProperty Name="saveID" ColumnName="saveID" />
+                <ScalarProperty Name="postID" ColumnName="postID" />
+                <ScalarProperty Name="viewerID" ColumnName="viewerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="PressAgencySysModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="confirmPass" ColumnName="confirmPass" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

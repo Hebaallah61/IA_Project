@@ -1,0 +1,193 @@
+﻿@model Webagency.Models.postsphotosview
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_WallLayout.cshtml";
+}
+
+@if (Session["user"] != null)
+{
+
+
+    <div class="container " style="border:2px solid #808080;min-height:350px; padding:10px 35px;max-width:85%;border-radius:2px;">
+        @foreach (var item in Model.articleposts)
+        {
+            <div class="row justify-content-center">
+                <div class="row ">
+                    <p class="col-lg-2 lift">@item.articleType</p>
+                    <p class="col-lg-2 right">@item.postCreationDate</p>
+                </div>
+                <div class="row justify-content-center ">
+                    <h2 class="col-lg-12 ">@item.articleTitle</h2>
+                </div>
+
+
+
+                <div class="row justify-content-between border border-secondary">
+                    @foreach (var image in Model.photos)
+                    {
+                        if (image.articleid == item.articleID)
+                        {
+                            <img src="~/images/profiles/@image.path" class="img-fluid" alt="">
+                        }
+
+                    }
+
+                </div>
+
+                <div class="row justify-content-around overflow-hidden " style="min-height:250px ">
+                    <div class="col-lg-12">
+
+                        @item.articlebody
+
+
+                    </div>
+
+
+
+                </div>
+                <div class="row  justify-content-between border border-secondary ">
+
+                    <div class="col-lg-2" style="max-width:100px">
+                        <i class="fa fa-eye"></i> @item.NumberOfViewers
+                    </div>
+                    @if (Session["user"] != null)
+                    {
+
+
+                        <div class="col-lg-2" style="max-width:100px">
+
+
+                            <button class="col-md-4 btn btn-link btn btn-secondary " id="DisLike" onclick="Dislike(@item.articleID)"><i class="fa fa-thumbs-down fs-2"></i>@item.NumberOfDislikes</button>
+                        </div>
+                        <div class="col-lg-2" style="max-width:100px">
+
+                            <button class="col-md-4 btn btn-link btn btn-secondary " id="Like" onclick="Like(@item.articleID)"><i class="fa fa-thumbs-up fs-2"></i> @item.NumberOfLikes</button>
+
+
+
+                        </div>
+
+                        <div class="col-lg-2" style="max-width:100px">
+                            <button class="col-md-4 btn btn-link btn btn-secondary " id="Save" onclick="Save(@item.articleID)"><i class="fa fa-save fs-2"></i></button>
+
+                        </div>
+
+                        <div class="col-lg-2" style="max-width:100px">
+                            @Html.ActionLink("show  Answers", "Answers", new { id = item.articleID }, htmlAttributes: new { @class = "btn btn-primary btn-lg-1 " })
+
+
+                        </div>
+
+
+                    }
+
+                    <!------------------------------------------------>
+                </div>
+                @if (Session["user"] != null)
+                {
+                    <div class="row  justify-content-between border border-secondary " style="margin-top:5px;">
+
+                        <div class="col-lg-2" style="padding:0;">
+                            <button type="button" class="btn btn-primary btn-lg-2" id="Quesion" onclick="ask(@item.articleID)">Send Question</button>
+                        </div>
+
+                        <input type="text" class="col-lg-10" for="textArea" id="Ques" placeholder="Question ?" style="width:100%;height:40px;">
+
+                    </div>
+                }
+
+
+            </div>
+        }
+    </div>
+
+
+}
+
+else
+{
+    Html.RenderAction("Index1");
+}
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        ask = function (id) {
+            Qdata = $("#Ques").val();
+            $.ajax({
+                type: "POST",
+                url: "/Wall/AddQuestion/" + id,
+                data: { ques: Qdata },
+                success: function (resoponse) {
+                    if (resoponse.result) {
+                        alert("Qustion added");
+                    }
+                    else {
+                        alert("Qustion not add");
+                    }
+                },
+            })
+        }
+        Views = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/CountViews/" + id,
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("view");
+                    }
+                    else {
+                        alert("not view");
+                    }
+                },
+            })
+        }
+        Dislike = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/DisLike/" + id,
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("Dislike");
+                    }
+                    else {
+                        alert("Remove Dislike");
+                    }
+                },
+            })
+        }
+        Like = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/Like/" + id,
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("like");
+                    }
+                    else {
+                        alert("Remove like");
+                    }
+                },
+            })
+        }
+        Save = function (id) {
+            $.ajax({
+                type: "GET",
+                url: "/Wall/Save/" + id,
+                success: function (resoponse) {
+                    if (resoponse.respons) {
+                        alert("you save post");
+                    }
+                    else {
+                        alert("you saved post");
+                    }
+                },
+            })
+        }
+    </script>
+
+}
